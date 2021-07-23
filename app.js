@@ -1,15 +1,15 @@
-const rect = {
-  perimeter: (x, y) => 2 * (x + y),
-  area: (x, y) => x * y
-};
+// const rect = require('./rectangle');
+import rectangle from './rectangle.js';
 
 function solveRect(l, w) {
-  if (l <= 0 || w <= 0) {
-    console.log(`incorrect values`);
-  } else {
-    console.log(`the area is ${rect.area(l, w)}`);
-    console.log(`the perimeter is ${rect.perimeter(l, w)}`);
-  }
+  rectangle(l, w, (err, rectangle) => {
+    if (err) {
+      console.log('error', err.message);
+    } else {
+      console.log(`the area is ${rectangle.area()}`);
+      console.log(`the perimeter is ${rectangle.perimeter()}`);
+    }
+  });
 }
 
 solveRect(2, 4);
